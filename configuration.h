@@ -1,3 +1,5 @@
+// (c) 2018 Mehmet Kadayifci
+// This code is licensed under MIT license (see the license file for details)
 
 #ifndef configuration
 #define configuration
@@ -15,7 +17,7 @@ const int MOTOR_RESET = 10;
 } // namespace PinOutConfiguration
 namespace Configuration
 {
-const int BACKGROUND_LIGHT_LEVEL=50;
+const int BACKGROUND_LIGHT_LEVEL = 50;
 const int NEEDLE_LIGHT_LEVEL = 100;
 const int LIGHT_TEST_DELAY = 10;
 const int STEPS = 280 * 12; //315 * 12;

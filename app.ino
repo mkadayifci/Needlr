@@ -1,3 +1,5 @@
+// (c) 2018 Mehmet Kadayifci
+// This code is licensed under MIT license (see the license file for details)
 
 #include "configuration.h"
 #include "src/light_manager.h"
@@ -7,20 +9,14 @@
 LightManager *lightManager = new LightManager();
 
 Motor *needleMotor = new Motor(
-                                PinOutConfiguration::MOTOR_DIR,
-                                PinOutConfiguration::MOTOR_RESET,
-                                PinOutConfiguration::MOTOR_STEP,
-                                Configuration::STEPS);
+    PinOutConfiguration::MOTOR_DIR,
+    PinOutConfiguration::MOTOR_RESET,
+    PinOutConfiguration::MOTOR_STEP,
+    Configuration::STEPS);
 
-LaunchControl *launchControl = new LaunchControl(lightManager,needleMotor);
-
-int valueRange[2] = {0, 100};
-int stepperRange[2] = {0, Configuration::STEPS};
+LaunchControl *launchControl = new LaunchControl(lightManager, needleMotor);
 
 long cycleTime = 1000000;
-
-
-
 
 int currentStepDelay = 0;
 
@@ -32,41 +28,15 @@ void setup()
     Serial.begin(9600);
 
     launchControl->launch();
-
 }
 
-// int getTargetStep(long value)
-// {
-//     return map(value, valueRange[0], valueRange[1], stepperRange[0], stepperRange[1]);
-// }
-// void calculateAndSet(int targetValue)
-// {
-//     targetStep = getTargetStep(targetValue);
-//     int stepDiff = targetStep - currentStep;
-//     int stepDiffAbs = abs(stepDiff);
-//     currentDirection = ((stepDiff)) < 0 ? Direction::CCW : Direction::CW;
-//     currentStepDelay = (cycleTime - (stepDiffAbs * stepDelayInMicroseconds)) / stepDiffAbs;
-// }
-
-
-// void tick()
-// {
-//     if (currentStep != targetStep)
-//     {
-//         digitalWrite(PinOutConfiguration::MOTOR_DIR, currentDirection);
-//         step();
-//         currentStep = currentDirection == Direction::CW ? currentStep + 1 : currentStep - 1;
-
-//         delayMicroseconds(currentStepDelay);
-//     }
-// }
 
 void loop()
 {
     if (Serial.available())
     {
-        // int targetValue = Serial.read();
-        // calculateAndSet(targetValue);
+        int value = Serial.read();
+        needleMotor->setPosition(map(value, 0, 100, 1, Configuration::STEPS));
     }
-    // tick();
+    needleMotor->tick();
 }

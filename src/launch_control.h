@@ -1,3 +1,6 @@
+// (c) 2018 Mehmet Kadayifci
+// This code is licensed under MIT license (see the license file for details)
+
 #include "Arduino.h"
 #include "light_manager.h"
 #include "motor.h"
