@@ -1,7 +1,7 @@
 // (c) 2018 Mehmet Kadayifci
 // This code is licensed under MIT license (see the license file for details)
 
-#include "configuration.h"
+#include "./configuration.h"
 #include "src/light_manager.h"
 #include "src/launch_control.h"
 #include "src/motor.h"
@@ -16,12 +16,6 @@ Motor *needleMotor = new Motor(
 
 LaunchControl *launchControl = new LaunchControl(lightManager, needleMotor);
 
-long cycleTime = 1000000;
-
-int currentStepDelay = 0;
-
-int stepDelayInMicroseconds = 300;
-int stepsRequired = 0;
 
 void setup()
 {
