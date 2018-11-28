@@ -6,6 +6,16 @@
 #include "launch_control.h"
 #include "light_manager.h"
 
+LaunchControl::LaunchControl(LightManager *lightManager, Motor *needleMotor)
+{
+    this->lightManager = lightManager;
+    this->needleMotor = needleMotor;
+}
+
+LaunchControl::~LaunchControl()
+{
+}
+
 void LaunchControl::setPinModes()
 {
     pinMode(PinOutConfiguration::MOTOR_STEP, OUTPUT);
@@ -18,7 +28,6 @@ void LaunchControl::setPinModes()
 
 void LaunchControl::startBuzzerTest()
 {
-
     digitalWrite(PinOutConfiguration::BUZZER, HIGH);
     delay(300);
     digitalWrite(PinOutConfiguration::BUZZER, LOW);
@@ -38,10 +47,10 @@ void LaunchControl::startLightTest()
         this->lightManager->setBrightness(LightManager::LightTypes::NeedleLight, i);
         delay(Configuration::LIGHT_TEST_DELAY);
     }
-
     this->lightManager->setBrightness(LightManager::LightTypes::BackLight, Configuration::BACKGROUND_LIGHT_LEVEL);
     this->lightManager->setBrightness(LightManager::LightTypes::NeedleLight, Configuration::NEEDLE_LIGHT_LEVEL);
 }
+
 void LaunchControl::startMotor()
 {
     this->needleMotor->resetToZero();

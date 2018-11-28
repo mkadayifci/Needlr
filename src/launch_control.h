@@ -9,6 +9,7 @@
 
 class LaunchControl
 {
+  private:
     LightManager *lightManager;
     Motor *needleMotor;
 
@@ -16,13 +17,10 @@ class LaunchControl
     void startLightTest();
     void startBuzzerTest();
     void startMotor();
+
   public:
-    LaunchControl(LightManager *lightManager,Motor *needleMotor)
-    {
-        this->lightManager = lightManager;   
-        this->needleMotor = needleMotor;
-    };
-    ~LaunchControl(){};
+    LaunchControl(LightManager *lightManager,Motor *needleMotor);
+    ~LaunchControl();
     void setPinModes();
     void launch();
 

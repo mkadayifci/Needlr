@@ -22,4 +22,5 @@ const int NEEDLE_LIGHT_LEVEL = 100;
 const int LIGHT_TEST_DELAY = 10;
 const int STEPS = 280 * 12; //315 * 12;
 } // namespace Configuration
+
 #endif

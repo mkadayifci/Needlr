@@ -2,6 +2,5 @@
     "board": "arduino:avr:nano",
     "configuration": "cpu=atmega328old",
     "port": "COM8",
-    "sketch": "app.ino",
-    "output": "bin"
+    "sketch": "app.ino"
 }
