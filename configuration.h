@@ -8,7 +8,7 @@ namespace PinOutConfiguration
 {
 
 const int BACKGROUND_LIGHT = 3;
-const int NEEDLE_LIGHT = 8;
+const int NEEDLE_LIGHT = 10;
 const int BUZZER = 9;
 const int MOTOR_STEP = 5;
 const int MOTOR_DIR = 6;

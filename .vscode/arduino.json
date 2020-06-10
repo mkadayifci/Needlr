@@ -1,6 +1,7 @@
 {
     "board": "arduino:avr:nano",
     "configuration": "cpu=atmega328",
-    "port": "COM3",
-    "sketch": "app.ino"
+    "port": "COM4",
+    "sketch": "app.ino",
+    "programmer": "AVRISP mkII"
 }
